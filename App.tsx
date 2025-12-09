@@ -221,12 +221,12 @@ const App: React.FC = () => {
             </button>
          </div>
 
-         {/* Layout: Horizontal Scroll on Mobile, Bento Grid on Desktop */}
-         <div className="flex overflow-x-auto md:grid md:grid-cols-4 md:auto-rows-[250px] gap-4 md:gap-4 snap-x snap-mandatory md:snap-none no-scrollbar -mx-4 px-4 pb-8 md:pb-0 md:mx-0 md:px-0 md:grid-flow-dense">
+         {/* Layout: Horizontal Scroll on Desktop and Mobile */}
+         <div className="flex overflow-x-auto gap-4 md:gap-6 snap-x snap-mandatory no-scrollbar -mx-4 px-4 pb-8 md:mx-0 md:px-0 md:pb-4">
             {STYLES.map(style => (
                <div 
                   key={style.id} 
-                  className={`shrink-0 snap-center w-[85vw] h-[450px] md:w-auto md:h-auto ${style.className}`}
+                  className="shrink-0 snap-center w-[85vw] h-[450px] md:w-[400px] md:h-[600px]"
                >
                   <CategoryCard style={style} onClick={openModal} />
                </div>
