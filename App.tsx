@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, Instagram, Facebook, Youtube, MapPin, Star, Shield, PenTool, ArrowRight, Plus, CheckCircle, Smartphone, Users, Trophy, Phone, MessageCircle, Calculator, Zap } from 'lucide-react';
+import { Menu, Instagram, Facebook, Youtube, MapPin, Star, Shield, PenTool, ArrowRight, Plus, CheckCircle, Smartphone, Users, Trophy, Phone, MessageCircle, Calculator, Zap, CreditCard } from 'lucide-react';
 import { TattooStyle, Story, Artist, Location, FAQItem, Testimonial, Offer } from './types';
 import LeadForm from './components/LeadForm';
 import ChatWidget from './components/ChatWidget';
@@ -152,6 +152,15 @@ const App: React.FC = () => {
         {/* Floating Content Card (Left Aligned) */}
         <div className="relative z-10 container mx-auto px-4 md:px-12 h-full flex items-center">
           <div className="bg-white p-8 md:p-12 max-w-lg shadow-2xl animate-fade-in-up">
+            
+            {/* Added Aliens Pay Badge */}
+            <div className="inline-flex items-center gap-2 bg-[#EAEA36] px-3 py-1.5 mb-4 shadow-sm transform -translate-x-1">
+               <CreditCard className="w-3 h-3 text-black" />
+               <span className="text-[10px] font-black uppercase tracking-widest text-black">
+                  Aliens Pay: Tattoo Now, Pay Later
+               </span>
+            </div>
+
             <h1 className="text-4xl md:text-6xl font-black text-black leading-[0.9] uppercase tracking-tighter mb-6">
                Your Tattoo<br/>
                Is About<br/>
@@ -243,7 +252,26 @@ const App: React.FC = () => {
          </div>
       </section>
 
-      {/* --- 4. YELLOW BAND: Tattoo Now Pay Later --- */}
+      {/* --- 4. Masters of Ink (Artists) (MOVED FROM BOTTOM) --- */}
+      <section id="artists" className="py-20 md:py-24 bg-[#F5F5F7]">
+         <div className="container mx-auto px-4 md:px-12">
+            <div className="mb-12 flex flex-col md:flex-row justify-between items-end gap-4">
+               <div>
+                  <h2 className="text-3xl md:text-5xl font-black text-black uppercase tracking-tight leading-none">Masters of Ink</h2>
+                  <p className="text-gray-500 mt-2 text-sm font-medium">Not just artists, but storytellers.</p>
+               </div>
+               <button onClick={openModal} className="text-black border-b border-black pb-1 text-xs font-bold uppercase tracking-widest hover:opacity-60">View All Artists</button>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+               {ARTISTS.map(artist => (
+                  <ArtistCard key={artist.id} artist={artist} />
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* --- 5. YELLOW BAND: Tattoo Now Pay Later --- */}
       <section className="bg-[#EAEA36] w-full py-10 md:py-12">
          <div className="container mx-auto px-4 md:px-12 text-center">
             <h2 className="text-3xl md:text-5xl font-black text-black uppercase tracking-tighter leading-none mb-4">
@@ -269,7 +297,7 @@ const App: React.FC = () => {
          </div>
       </section>
 
-      {/* --- 5. EMBEDDED LEAD FORM (High Conversion Section) --- */}
+      {/* --- 6. EMBEDDED LEAD FORM (High Conversion Section) --- */}
       <section className="bg-[#111] py-20 md:py-24 text-white relative overflow-hidden">
          {/* Decorative Background Elements */}
          <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
@@ -317,7 +345,7 @@ const App: React.FC = () => {
          </div>
       </section>
 
-      {/* --- 6. Exclusive Offers Strip (Compact) --- */}
+      {/* --- 7. Exclusive Offers Strip (Compact) --- */}
       <section id="offers" className="py-12 bg-[#F9F9FB] border-b border-gray-200">
          <div className="container mx-auto px-4 md:px-12">
             <div className="flex justify-between items-center mb-6">
@@ -336,7 +364,7 @@ const App: React.FC = () => {
          </div>
       </section>
 
-      {/* --- 7. Customer Love (Testimonials) --- */}
+      {/* --- 8. Customer Love (Testimonials) --- */}
       <section className="py-20 md:py-24 bg-white border-t border-gray-100">
          <div className="container mx-auto px-4 md:px-12">
             <div className="text-center mb-16">
@@ -346,25 +374,6 @@ const App: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-6">
                {TESTIMONIALS.map(t => (
                   <TestimonialCard key={t.id} testimonial={t} />
-               ))}
-            </div>
-         </div>
-      </section>
-
-      {/* --- 8. Masters of Ink (Artists) --- */}
-      <section id="artists" className="py-20 md:py-24 bg-[#F5F5F7]">
-         <div className="container mx-auto px-4 md:px-12">
-            <div className="mb-12 flex flex-col md:flex-row justify-between items-end gap-4">
-               <div>
-                  <h2 className="text-3xl md:text-5xl font-black text-black uppercase tracking-tight leading-none">Masters of Ink</h2>
-                  <p className="text-gray-500 mt-2 text-sm font-medium">Not just artists, but storytellers.</p>
-               </div>
-               <button onClick={openModal} className="text-black border-b border-black pb-1 text-xs font-bold uppercase tracking-widest hover:opacity-60">View All Artists</button>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-               {ARTISTS.map(artist => (
-                  <ArtistCard key={artist.id} artist={artist} />
                ))}
             </div>
          </div>
